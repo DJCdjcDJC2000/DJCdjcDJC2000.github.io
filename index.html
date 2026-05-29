@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Junchao Duan — Personal Homepage</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --bg-card: #12121a;
+  --bg-card-hover: #181825;
+  --border: #1e1e2e;
+  --text: #e0e0e8;
+  --text-muted: #8888a0;
+  --accent: #6c63ff;
+  --accent-light: #8b83ff;
+  --accent-glow: rgba(108, 99, 255, 0.3);
+  --gold: #f0c060;
+  --gold-glow: rgba(240, 192, 96, 0.3);
+  --green: #4ade80;
+  --green-glow: rgba(74, 222, 128, 0.25);
+  --red: #f87171;
+  --blue: #60a5fa;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font: 'Inter', 'Noto Sans SC', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Ambient background */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(108, 99, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(240, 192, 96, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(74, 222, 128, 0.05) 0%, transparent 50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ========== NAV ========== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.nav-inner a {
+  display: inline-block;
+  padding: 14px 18px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
+  letter-spacing: 0.3px;
+}
+
+.nav-inner a:hover { color: var(--text); border-bottom-color: var(--accent); }
+
+/* ========== HERO ========== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.hero-content { width: 100%; }
+
+.greeting {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--accent-light);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.name-block {
+  margin-bottom: 12px;
+}
+
+.name-block h1 {
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 900;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #e0e0e8 0%, #a0a0c0 40%, var(--accent-light) 70%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: var(--text-muted);
+  font-weight: 400;
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.tag:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.tag i { font-size: 12px; color: var(--accent); }
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.contact-btn.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.contact-btn.primary:hover {
+  background: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+.contact-btn.secondary {
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.contact-btn.secondary:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: float 2s ease-in-out infinite;
+  opacity: 0.5;
+}
+
+.scroll-indicator span { font-size: 12px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+.scroll-indicator i { font-size: 16px; color: var(--text-muted); }
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+/* ========== SECTIONS ========== */
+.section {
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 48px;
+  letter-spacing: -0.5px;
+}
+
+.section-title .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+/* ========== EDUCATION ========== */
+.edu-list { display: flex; flex-direction: column; gap: 20px; }
+
+.edu-card {
+  display: flex;
+  gap: 24px;
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.edu-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 30px var(--accent-glow);
+  transform: translateX(4px);
+}
+
+.edu-badge {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.edu-badge.master {
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.2), rgba(108, 99, 255, 0.1));
+  color: var(--accent-light);
+  border: 1px solid rgba(108, 99, 255, 0.3);
+}
+
+.edu-badge.bachelor {
+  background: linear-gradient(135deg, rgba(240, 192, 96, 0.2), rgba(240, 192, 96, 0.1));
+  color: var(--gold);
+  border: 1px solid rgba(240, 192, 96, 0.3);
+}
+
+.edu-info { flex: 1; }
+
+.edu-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.edu-info .school { font-size: 15px; color: var(--text-muted); margin-bottom: 8px; }
+
+.edu-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.edu-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.edu-meta .rank {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ========== AWARDS ========== */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.award-card {
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.award-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--accent));
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.award-card:hover::before { opacity: 1; }
+.award-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+
+.award-card .award-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.award-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; line-height: 1.4; }
+.award-card .year { font-size: 13px; color: var(--gold); font-family: var(--font-mono); }
+
+/* ========== RESEARCH ========== */
+.research-list { display: flex; flex-direction: column; gap: 20px; }
+
+.research-card {
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  position: relative;
+}
+
+.research-card:hover { border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
+
+.research-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.research-header h3 { font-size: 17px; font-weight: 600; line-height: 1.4; }
+
+.status-badge {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.done { background: rgba(74, 222, 128, 0.12); color: var(--green); border: 1px solid rgba(74, 222, 128, 0.2); }
+.status-badge.ongoing { background: rgba(96, 165, 250, 0.12); color: var(--blue); border: 1px solid rgba(96, 165, 250, 0.2); }
+
+.research-details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.research-details li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.research-details li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.tech-tag {
+  padding: 4px 12px;
+  background: rgba(108, 99, 255, 0.08);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--accent-light);
+}
+
+/* ========== GRADUATION PROJECT ========== */
+.grad-project {
+  padding: 28px;
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(192, 132, 252, 0.05));
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  border-radius: var(--radius);
+}
+
+.grad-project h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.grad-project .award-line {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(240, 192, 96, 0.12);
+  border: 1px solid rgba(240, 192, 96, 0.25);
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+/* ========== SKILLS ========== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.skill-card {
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.skill-card:hover { border-color: var(--accent); }
+
+.skill-card .skill-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.skill-card .skill-icon {
+  font-size: 28px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-card h4 { font-size: 16px; font-weight: 600; }
+
+.skill-card .skill-level {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.skill-card .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.skill-card .dot.active { background: var(--accent); box-shadow: 0 0 8px var(--accent-glow); }
+
+.skill-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+.ielts-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer .quote {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.footer .copyright {
+  font-size: 12px;
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* ========== ANIMATIONS ========== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero { min-height: auto; padding: 120px 0 80px; }
+  .section { padding: 60px 0; }
+  .edu-card { flex-direction: column; gap: 16px; }
+  .research-header { flex-direction: column; }
+  .awards-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .nav-inner a { padding: 12px 10px; font-size: 12px; }
+}
+
+/* ========== PRINT ========== */
+@media print {
+  body { background: #fff; color: #000; }
+  .section { border-top-color: #ddd; }
+  nav { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#home">Home</a>
+    <a href="#education">Education</a>
+    <a href="#awards">Awards</a>
+    <a href="#research">Research</a>
+    <a href="#skills">Skills</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="greeting">👋 Hello, I'm</div>
+      <div class="name-block"><h1>Junchao Duan</h1></div>
+      <p class="subtitle">M.S. in Mathematics @ Harbin Institute of Technology &nbsp;|&nbsp; Rank 1/18</p>
+      <div class="tag-row">
+        <span class="tag"><i class="fa-solid fa-code"></i>Python</span>
+        <span class="tag"><i class="fa-solid fa-c"></i>C++</span>
+        <span class="tag"><i class="fa-solid fa-chart-line"></i>MATLAB</span>
+        <span class="tag"><i class="fa-solid fa-flask"></i>Optimization</span>
+        <span class="tag"><i class="fa-solid fa-brain"></i>Machine Learning</span>
+        <span class="tag"><i class="fa-solid fa-robot"></i>Deep Learning</span>
+        <span class="tag"><i class="fa-solid fa-calculator"></i>Math Modeling</span>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:22s012032@stu.hit.edu.cn" class="contact-btn primary">
+          <i class="fa-solid fa-envelope"></i>Email Me
+        </a>
+        <a href="https://github.com/" target="_blank" class="contact-btn secondary">
+          <i class="fa-brands fa-github"></i>GitHub
+        </a>
+        <a href="#" class="contact-btn secondary">
+          <i class="fa-brands fa-google-scholar"></i>Google Scholar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <div class="container">
+    <h2 class="section-title">
+      <span class="icon">🎓</span>Education
+    </h2>
+    <div class="edu-list fade-in">
+      <div class="edu-card">
+        <div class="edu-badge master">MS</div>
+        <div class="edu-info">
+          <h3>Master of Science in Mathematics</h3>
+          <p class="school">Harbin Institute of Technology <span style="color:var(--accent-light);font-size:12px;">(985 Project)</span></p>
+          <div class="edu-meta">
+            <span><i class="fa-solid fa-calendar"></i> 2022.09 – 2025.06</span>
+            <span class="rank"><i class="fa-solid fa-trophy"></i> Rank 1/18</span>
+          </div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-badge bachelor">BS</div>
+        <div class="edu-info">
+          <h3>Bachelor of Science in Mathematics</h3>
+          <p class="school">Harbin Engineering University <span style="color:var(--gold);font-size:12px;">(211 Project)</span></p>
+          <div class="edu-meta">
+            <span><i class="fa-solid fa-calendar"></i> 2018.09 – 2022.06</span>
+            <span class="rank"><i class="fa-solid fa-trophy"></i> Rank 3/96</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards" class="section">
+  <div class="container">
+    <h2 class="section-title">
+      <span class="icon">🏆</span>Honors &amp; Awards
+    </h2>
+    <div class="awards-grid fade-in">
+      <div class="award-card">
+        <div class="award-icon">🥇</div>
+        <h4>National Scholarship</h4>
+        <p class="year">2019, 2020 &amp; 2021</p>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">📚</div>
+        <h4>First-Class Academic Scholarship</h4>
+        <p class="year">2022 &amp; 2023</p>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🎖️</div>
+        <h4>Outstanding Graduate</h4>
+        <p class="year">2022</p>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">⭐</div>
+        <h4>Merit Student of Heilongjiang Province</h4>
+        <p class="year">2023</p>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🧮</div>
+        <h4>Nat'l College Math Competition — Third Prize</h4>
+        <p class="year">2019</p>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🏅</div>
+        <h4>Nat'l College Math Competition — Provincial 1st Prize</h4>
+        <p class="year">2020</p>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">📊</div>
+        <h4>Northeast Math Modeling League — Provincial 1st Prize</h4>
+        <p class="year">2020</p>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">📈</div>
+        <h4>Nat'l Math Modeling Competition — Provincial 2nd Prize</h4>
+        <p class="year">2020</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="section">
+  <div class="container">
+    <h2 class="section-title">
+      <span class="icon">🔬</span>Research &amp; Projects
+    </h2>
+    <div class="research-list fade-in">
+
+      <div class="research-card">
+        <div class="research-header">
+          <h3>Digital Twin Technology of Indoor Parking Lot</h3>
+          <span class="status-badge ongoing">On Going</span>
+        </div>
+        <ul class="research-details">
+          <li>Improved M3D-RPN network for 3D vehicle center detection and constructed parking garage top-view via perspective transformation</li>
+          <li>Applied Kalman filter to track and correct occlusion issues during the parking process</li>
+          <li>Led the research group, coordinating task implementation with strong organizational and teamwork abilities</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">M3D-RPN</span>
+          <span class="tech-tag">Kalman Filter</span>
+          <span class="tech-tag">3D Detection</span>
+          <span class="tech-tag">Computer Vision</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-header">
+          <h3>Asteroid Trajectory Analysis</h3>
+          <span class="status-badge done">Completed</span>
+        </div>
+        <ul class="research-details">
+          <li>Fitted light variable trigonometric curves using Least Squares Method in C++, estimating spin angular velocity with accuracy &gt; 10⁻⁶</li>
+          <li>Used projective transformation and rotation matrices to obtain feature point motion trajectories</li>
+          <li>Applied SVD and Least Squares for trajectory circle fitting; used Ipopt optimization package to estimate spin axis direction with accuracy &gt; 10⁻⁶</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">C++</span>
+          <span class="tech-tag">SVD</span>
+          <span class="tech-tag">Ipopt</span>
+          <span class="tech-tag">Least Squares</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-header">
+          <h3>Semi-supervised Clustering of Image Data via Sparse Subspace Representation</h3>
+          <span class="status-badge done">Completed</span>
+        </div>
+        <ul class="research-details">
+          <li>Transformed the nonconvex ℓ₀-norm optimization into a convex ℓ₁-norm optimization problem</li>
+          <li>Combined Sparse Subspace Clustering (SSC) with LE dimensionality reduction</li>
+          <li>Innovatively added semi-supervised information to the heat kernel function of LE algorithm</li>
+          <li>Achieved &gt;85% clustering accuracy on YaleB and COIL-20 datasets using MATLAB with ADMM and Soft Threshold algorithms</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">MATLAB</span>
+          <span class="tech-tag">SSC</span>
+          <span class="tech-tag">ADMM</span>
+          <span class="tech-tag">Semi-supervised Learning</span>
+          <span class="tech-tag">Clustering</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-header">
+          <h3>Math Modeling — Epidemic Data Analysis</h3>
+          <span class="status-badge done">Completed</span>
+        </div>
+        <ul class="research-details">
+          <li>Used Python (Numpy, Pandas, Matplotlib) for epidemic data analysis; wrote a 35-page modeling paper in LaTeX</li>
+          <li>Applied Systematic Clustering Method and ARMA model to cluster epidemic levels and predict trends across countries</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Pandas</span>
+          <span class="tech-tag">ARMA</span>
+          <span class="tech-tag">LaTeX</span>
+        </div>
+      </div>
+
+      <div class="research-card">
+        <div class="research-header">
+          <h3>Math Modeling — Enterprise Loan Data Analysis</h3>
+          <span class="status-badge done">Completed</span>
+        </div>
+        <ul class="research-details">
+          <li>Analyzed and visualized big data of enterprise loans using Python; wrote a 26-page modeling paper in LaTeX</li>
+          <li>Applied Multiple Regression, Systematic Clustering, and Decision Tree methods</li>
+        </ul>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Regression</span>
+          <span class="tech-tag">Decision Tree</span>
+          <span class="tech-tag">Data Viz</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GRADUATION PROJECT -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">
+      <span class="icon">🎯</span>Graduation Project
+    </h2>
+    <div class="grad-project fade-in">
+      <h3>Sparse Spectral Methods for a Class of Optimal Control Problems</h3>
+      <span class="award-line">🥇 First Place — Thesis Proposal &amp; Mid-term Defense</span>
+      <ul class="research-details">
+        <li>Identified limitations of traditional node-based pseudo-spectral methods (dense coefficient matrices, computational inefficiency)</li>
+        <li>Proposed a modal basis pseudo-spectral method using Chebyshev polynomials of the first kind to approximate unknown functions</li>
+        <li>Transformed dynamic constraints into Chebyshev approximation coefficient equality constraints, discretizing the optimal control problem into a sparse-band nonlinear programming problem</li>
+        <li>Implemented in Python, achieving excellent accuracy and convergence speed; verified algorithm advantages via condition number analysis</li>
+        <li>Future directions: hp spectral element method and further extensions</li>
+      </ul>
+      <div class="tech-tags" style="margin-top:12px;">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Chebyshev Polynomials</span>
+        <span class="tech-tag">Spectral Methods</span>
+        <span class="tech-tag">Optimal Control</span>
+        <span class="tech-tag">fmincon</span>
+        <span class="tech-tag">NLP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <div class="container">
+    <h2 class="section-title">
+      <span class="icon">💻</span>Skills &amp; Languages
+    </h2>
+    <div class="skills-grid fade-in">
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon">🐍</div>
+          <h4>Python</h4>
+        </div>
+        <div class="skill-level">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span>
+        </div>
+        <p>NumPy, Pandas, Matplotlib for data analysis &amp; visualization. PyTorch for deep learning &amp; image processing projects.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon">⚙️</div>
+          <h4>C++</h4>
+        </div>
+        <div class="skill-level">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span>
+        </div>
+        <p>ADOL-C, Eigen, Ipopt for numerical analysis and optimization problem solving.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon">📐</div>
+          <h4>MATLAB</h4>
+        </div>
+        <div class="skill-level">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span>
+        </div>
+        <p>Proficient in numerical analysis, nonlinear optimization, data visualization &amp; image processing.</p>
+      </div>
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon">🌐</div>
+          <h4>English</h4>
+        </div>
+        <div class="skill-level">
+          <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span>
+        </div>
+        <p>Academic reading, writing &amp; communication.</p>
+        <span class="ielts-badge"><i class="fa-solid fa-language"></i> IELTS 7.0</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <p class="quote">"Mathematics is the language in which God has written the universe." — Galileo</p>
+    <p class="copyright">© 2025 Junchao Duan · Built with ❤️</p>
+  </div>
+</footer>
+
+<script>
+// Scroll-triggered fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Smooth reveal on load
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+});
+</script>
+
+</body>
+</html>
