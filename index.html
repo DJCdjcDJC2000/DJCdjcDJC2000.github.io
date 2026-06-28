@@ -3,25 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Junchao Duan - Ph.D. student in Applied Mathematics at The Hong Kong Polytechnic University. Research in numerical methods, complementarity problems, stochastic dynamical systems, spectral methods, and scientific computing.">
+<meta name="description" content="Junchao Duan is a Ph.D. student in Applied Mathematics at The Hong Kong Polytechnic University. His research focuses on fast numerical algorithms for differential stochastic linear complementarity problems.">
+<meta name="author" content="Junchao Duan">
+<meta property="og:title" content="Junchao Duan | Applied Mathematics">
+<meta property="og:description" content="Ph.D. student in Applied Mathematics at The Hong Kong Polytechnic University. Research in numerical optimization, complementarity problems, stochastic approximation, spectral methods, and scientific computing.">
+<meta property="og:type" content="website">
 <title>Junchao Duan | Applied Mathematics</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,650&family=Source+Sans+3:wght@400;500;600;700&family=Source+Code+Pro:wght@500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --page: #f7f9fb;
+  --page: #fbfbfa;
   --paper: #ffffff;
-  --ink: #1c2430;
-  --muted: #5c6675;
-  --soft: #e7edf3;
-  --line: #ccd6e0;
-  --blue: #264f73;
-  --green: #2f6f5e;
-  --rust: #a44a3f;
-  --gold: #b2872d;
-  --code: #eef3f6;
-  --shadow: 0 18px 45px rgba(32, 45, 63, 0.08);
+  --ink: #22272d;
+  --muted: #626e78;
+  --faint: #eef1f3;
+  --line: #d8dee3;
+  --line-strong: #c1cbd2;
+  --blue: #274766;
+  --blue-deep: #183047;
+  --teal: #2e6f67;
+  --rust: #8d4a3a;
+  --gold: #a27a2a;
+  --soft-blue: #e8f0f5;
+  --soft-teal: #e4f0ed;
+  --shadow: 0 16px 42px rgba(24, 48, 71, 0.08);
 }
 
 * {
@@ -34,23 +38,15 @@ html {
 
 body {
   margin: 0;
-  background: var(--page);
+  background:
+    linear-gradient(90deg, rgba(39, 71, 102, 0.025) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(39, 71, 102, 0.025) 1px, transparent 1px),
+    var(--page);
+  background-size: 44px 44px;
   color: var(--ink);
-  font-family: "Source Sans 3", "Noto Sans SC", sans-serif;
-  font-size: 17px;
+  font-family: "Aptos", "Segoe UI", Tahoma, sans-serif;
+  font-size: 16.5px;
   line-height: 1.68;
-  overflow-x: hidden;
-}
-
-body.is-zh {
-  font-family: "Source Sans 3", "Microsoft YaHei", "Noto Sans SC", sans-serif;
-}
-
-body.is-zh h1,
-body.is-zh h2,
-body.is-zh h3,
-body.is-zh .brand {
-  font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", Georgia, serif;
 }
 
 a {
@@ -66,617 +62,590 @@ a:hover {
 .skip-link {
   position: absolute;
   left: 16px;
-  top: -48px;
+  top: -50px;
+  z-index: 20;
   padding: 8px 12px;
   background: var(--ink);
   color: #fff;
-  z-index: 20;
 }
 
 .skip-link:focus {
   top: 12px;
 }
 
-.site-header {
+.topbar {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(247, 249, 251, 0.92);
-  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
+  background: rgba(251, 251, 250, 0.94);
+  backdrop-filter: blur(14px);
 }
 
-.nav {
-  max-width: 1160px;
+.topbar-inner {
+  width: min(1180px, calc(100% - 42px));
+  min-height: 66px;
   margin: 0 auto;
-  padding: 14px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 28px;
 }
 
-.brand {
+.site-name {
   color: var(--ink);
-  font-family: "Newsreader", Georgia, serif;
-  font-size: 24px;
-  font-weight: 650;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 700;
   text-decoration: none;
+  white-space: nowrap;
 }
 
-.nav-links {
+.nav {
   display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
   justify-content: flex-end;
   gap: 18px;
   flex-wrap: wrap;
 }
 
-.nav-links a {
+.nav a {
   color: var(--muted);
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 750;
   text-decoration: none;
 }
 
-.nav-links a:hover {
+.nav a:hover {
   color: var(--ink);
 }
 
-.language-switch {
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--paper);
-  box-shadow: 0 6px 18px rgba(32, 45, 63, 0.05);
-}
-
-.lang-option {
-  min-width: 48px;
-  min-height: 32px;
-  padding: 5px 10px;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.lang-option.is-active {
-  background: var(--ink);
-  color: #fff;
-}
-
-.lang-option:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 2px;
-}
-
-main {
-  max-width: 1160px;
+.layout {
+  width: min(1180px, calc(100% - 42px));
   margin: 0 auto;
-  padding: 46px 24px 70px;
-}
-
-.hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
-  gap: 42px;
-  align-items: start;
-  padding: 42px 0 34px;
+  grid-template-columns: 296px minmax(0, 1fr);
+  gap: 58px;
+  padding: 46px 0 72px;
 }
 
-.hero > * {
-  min-width: 0;
+.sidebar {
+  align-self: start;
+  position: sticky;
+  top: 92px;
 }
 
-.eyebrow {
-  margin: 0 0 14px;
-  color: var(--green);
-  font-size: 15px;
-  font-weight: 700;
-  overflow-wrap: anywhere;
-}
-
-h1,
-h2,
-h3 {
-  font-family: "Newsreader", Georgia, serif;
-  line-height: 1.12;
-  font-weight: 650;
-}
-
-h1 {
-  margin: 0;
-  font-size: 56px;
-}
-
-.subtitle {
-  max-width: 720px;
-  margin: 18px 0 0;
-  color: var(--muted);
-  font-size: 22px;
-  line-height: 1.55;
-  overflow-wrap: anywhere;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 9px 15px;
+.profile-card {
   border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--paper);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.portrait {
+  width: 152px;
+  height: 152px;
+  display: block;
+  margin: 0 auto 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: #fff;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow: 0 10px 26px rgba(24, 48, 71, 0.12);
+}
+
+.profile-card h1 {
+  margin: 0;
+  color: var(--blue-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 31px;
+  line-height: 1.12;
+  text-align: center;
+}
+
+.role {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.affiliation {
+  margin: 18px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.affiliation strong {
+  display: block;
   color: var(--ink);
   font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 6px 18px rgba(32, 45, 63, 0.05);
 }
 
-.button.primary {
-  border-color: var(--blue);
-  background: var(--blue);
-  color: #fff;
-}
-
-.button:hover {
-  transform: translateY(-1px);
-}
-
-.hero-visual {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-  padding: 22px;
-  min-width: 0;
-}
-
-.visual-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 16px;
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.research-slate {
-  border: 1px solid var(--soft);
-  border-radius: 6px;
-  background:
-    linear-gradient(90deg, rgba(204, 214, 224, 0.35) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(204, 214, 224, 0.35) 1px, transparent 1px),
-    #fbfcfd;
-  background-size: 28px 28px;
-  padding: 18px;
-  min-width: 0;
-}
-
-.formula {
-  margin: 0;
-  padding: 14px 14px;
-  border-left: 4px solid var(--green);
-  background: rgba(47, 111, 94, 0.07);
-  font-family: "Source Code Pro", Consolas, monospace;
-  font-size: 14px;
-  line-height: 1.55;
-  white-space: pre-wrap;
-  overflow-x: auto;
-}
-
-.pipeline {
+.profile-links {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-top: 16px;
-}
-
-.pipeline-step {
-  display: grid;
-  grid-template-columns: 94px 1fr;
-  gap: 12px;
-  align-items: start;
-  padding: 10px;
-  border: 1px solid var(--soft);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.76);
-}
-
-.pipeline-step b {
-  color: var(--blue);
-  font-size: 14px;
-}
-
-.pipeline-step span {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.quick-facts {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 9px;
   margin-top: 20px;
 }
 
-.fact {
-  padding: 12px 14px;
-  border-left: 3px solid var(--gold);
-  background: rgba(178, 135, 45, 0.08);
+.profile-links a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 38px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
   font-size: 14px;
+  font-weight: 760;
+  text-decoration: none;
 }
 
-.fact strong {
+.profile-links a::after {
+  content: ">";
+  color: var(--rust);
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 12px;
+}
+
+.profile-links a:hover {
+  border-color: var(--line-strong);
+  background: var(--soft-blue);
+}
+
+.mini-section {
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.78);
+  padding: 16px;
+}
+
+.mini-section h2 {
+  margin: 0 0 8px;
+  color: var(--rust);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.mini-section p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.content {
+  min-width: 0;
+}
+
+.hero {
+  padding: 8px 0 38px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero h2 {
+  margin: 0;
+  color: var(--blue-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 6vw, 74px);
+  line-height: 1.04;
+}
+
+.lead {
+  max-width: 820px;
+  margin: 20px 0 0;
+  color: #344752;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  line-height: 1.46;
+}
+
+.summary {
+  max-width: 820px;
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
+.research-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.strip-item {
+  min-height: 94px;
+  padding: 14px;
+  border-top: 3px solid var(--gold);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 10px 28px rgba(24, 48, 71, 0.05);
+}
+
+.strip-item strong {
   display: block;
-  color: var(--ink);
+  margin-bottom: 5px;
+  color: var(--blue-deep);
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 18px;
 }
 
-.section {
-  padding: 48px 0;
-  border-top: 1px solid var(--line);
-}
-
-.section-heading {
-  display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
-  gap: 32px;
-  align-items: start;
-  margin-bottom: 24px;
-}
-
-.section-heading h2 {
-  margin: 0;
-  color: var(--ink);
-  font-size: 32px;
-}
-
-.section-heading p {
-  margin: 0;
+.strip-item span {
   color: var(--muted);
-  max-width: 720px;
+  font-size: 14px;
 }
 
-.timeline {
-  display: grid;
-  gap: 16px;
+.section {
+  padding: 38px 0;
+  border-bottom: 1px solid var(--line);
 }
 
-.timeline-item,
-.work-item,
-.award-item,
-.teaching-note {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 10px 28px rgba(32, 45, 63, 0.05);
+.section:last-child {
+  border-bottom: 0;
 }
 
-.timeline-item {
+.section-head {
   display: grid;
   grid-template-columns: 170px minmax(0, 1fr);
-  gap: 22px;
+  gap: 28px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.section-kicker {
+  margin: 0;
+  color: var(--rust);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.section h2 {
+  margin: 0;
+  color: var(--blue-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 31px;
+}
+
+.section-intro {
+  margin: 6px 0 0;
+  color: var(--muted);
+  max-width: 760px;
+}
+
+.news-list,
+.item-list {
+  display: grid;
+  gap: 13px;
+}
+
+.news-row {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--faint);
+}
+
+.news-row:last-child {
+  border-bottom: 0;
 }
 
 .date {
   color: var(--rust);
-  font-weight: 800;
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
-.timeline-item h3,
-.work-item h3 {
-  margin: 0 0 6px;
-  font-size: 24px;
-}
-
-.meta {
-  margin: 0 0 9px;
+.news-row p,
+.entry p {
+  margin: 0;
   color: var(--muted);
-  font-weight: 600;
 }
 
-.clean-list {
-  margin: 10px 0 0;
-  padding-left: 20px;
-}
-
-.clean-list li {
-  margin: 6px 0;
-}
-
-.interest-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.interest {
-  min-height: 112px;
-  padding: 16px;
+.entry {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 32px rgba(24, 48, 71, 0.055);
+  padding: 20px;
 }
 
-.interest b {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--blue);
-}
-
-.interest span {
-  color: var(--muted);
-  font-size: 15px;
-}
-
-.work-list {
+.entry-top {
   display: grid;
-  gap: 16px;
-}
-
-.work-topline {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
   align-items: start;
 }
 
-.status {
-  flex: 0 0 auto;
-  padding: 4px 9px;
+.entry h3 {
+  margin: 0 0 5px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.22;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 27px;
+  padding: 3px 9px;
+  border: 1px solid rgba(141, 74, 58, 0.24);
   border-radius: 999px;
-  background: var(--code);
-  color: var(--green);
-  font-size: 13px;
-  font-weight: 800;
+  background: rgba(141, 74, 58, 0.06);
+  color: var(--rust);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.entry-body {
+  margin-top: 12px;
 }
 
 .tag-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 7px;
+  margin-top: 14px;
 }
 
 .tag {
-  display: inline-flex;
   padding: 4px 8px;
-  border-radius: 5px;
-  background: var(--code);
-  color: var(--muted);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.two-column {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 16px;
-}
-
-.award-list {
-  display: grid;
-  gap: 10px;
-}
-
-.award-item {
-  padding: 16px 18px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 14px;
-  align-items: start;
-}
-
-.award-item strong {
-  color: var(--ink);
-}
-
-.award-item span {
-  color: var(--muted);
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.skill {
-  padding: 8px 10px;
   border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 15px;
-  font-weight: 700;
+  border-radius: 999px;
+  background: var(--soft-blue);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
 }
 
-.teaching-note p {
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.compact-row {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--faint);
+}
+
+.compact-row:last-child {
+  border-bottom: 0;
+}
+
+.compact-row h3 {
+  margin: 0 0 3px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+}
+
+.compact-row p {
   margin: 0;
+  color: var(--muted);
+}
+
+.award-card {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.86);
+  padding: 16px;
+}
+
+.award-card strong {
+  display: block;
+  color: var(--ink);
+}
+
+.award-card span {
+  display: block;
+  margin-top: 4px;
+  color: var(--rust);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.method-card {
+  min-height: 132px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.86);
+  padding: 17px;
+}
+
+.method-card h3 {
+  margin: 0 0 7px;
+  color: var(--blue-deep);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+}
+
+.method-card p {
+  margin: 0;
+  color: var(--muted);
 }
 
 .footer {
   border-top: 1px solid var(--line);
-  padding: 30px 24px 42px;
-  color: var(--muted);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .footer-inner {
-  max-width: 1160px;
+  width: min(1180px, calc(100% - 42px));
   margin: 0 auto;
+  padding: 26px 0 40px;
   display: flex;
   justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 14px;
 }
 
-@media (max-width: 920px) {
-  .hero,
-  .section-heading,
-  .timeline-item,
-  .two-column {
+@media (max-width: 980px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .profile-card {
+    display: grid;
+    grid-template-columns: 118px minmax(0, 1fr);
+    gap: 20px;
+    align-items: center;
+  }
+
+  .portrait {
+    width: 112px;
+    height: 112px;
+    margin: 0;
+    font-size: 38px;
+  }
+
+  .profile-card h1,
+  .role {
+    text-align: left;
+  }
+
+  .affiliation,
+  .profile-links {
+    grid-column: 1 / -1;
+  }
+
+  .section-head,
+  .research-strip {
     grid-template-columns: 1fr;
   }
-
-  .interest-grid,
-  .quick-facts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  h1 {
-    font-size: 44px;
-  }
-
-  .subtitle {
-    font-size: 20px;
-  }
 }
 
-@media (max-width: 640px) {
-  html,
-  body,
-  .site-header,
-  .nav,
-  main,
-  .hero,
-  .section,
-  .section-heading,
-  .hero > div,
-  .hero-visual,
-  .research-slate {
-    width: 100%;
-    max-width: 100%;
+@media (max-width: 700px) {
+  body {
+    font-size: 16px;
   }
 
-  .nav {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
+  .topbar {
+    position: static;
   }
 
-  .nav-right {
-    width: 100%;
+  .topbar-inner,
+  .layout,
+  .footer-inner {
+    width: min(100% - 28px, 1180px);
+  }
+
+  .topbar-inner {
+    min-height: 0;
+    padding: 15px 0;
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
   }
 
-  .nav-links {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 6px 10px;
+  .nav {
+    justify-content: flex-start;
+    gap: 8px 11px;
   }
 
-  .nav-links a {
-    font-size: 14px;
+  .nav a {
+    font-size: 12.5px;
   }
 
-  .language-switch {
-    width: 124px;
+  .layout {
+    padding-top: 26px;
   }
 
-  main {
-    padding: 28px 18px 54px;
-  }
-
-  .hero {
-    padding-top: 22px;
-    gap: 28px;
-  }
-
-  h1 {
-    font-size: 36px;
-  }
-
-  .eyebrow,
-  .subtitle {
-    width: 100%;
-    max-width: calc(100vw - 36px);
-  }
-
-  .subtitle {
-    font-size: 19px;
-  }
-
-  .hero-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .quick-facts,
-  .interest-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .pipeline-step {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-
-  .button {
-    width: 100%;
-    max-width: 100%;
-    overflow-wrap: anywhere;
-  }
-
-  .work-topline,
-  .award-item {
+  .profile-card {
     display: block;
   }
 
-  .status,
-  .award-item span {
-    display: inline-flex;
-    margin-top: 8px;
-  }
-}
-
-@media print {
-  .site-header,
-  .hero-actions,
-  .language-switch {
-    display: none;
+  .portrait {
+    margin: 0 auto 18px;
   }
 
-  body {
-    background: #fff;
+  .profile-card h1,
+  .role {
+    text-align: center;
   }
 
-  main {
-    padding: 0;
+  .hero h2 {
+    font-size: 42px;
   }
 
-  .section {
-    page-break-inside: avoid;
+  .lead {
+    font-size: 21px;
+  }
+
+  .entry-top,
+  .compact-row,
+  .news-row,
+  .two-col,
+  .method-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .date,
+  .pill {
+    white-space: normal;
+  }
+
+  .footer-inner {
+    flex-direction: column;
   }
 }
 </style>
@@ -684,298 +653,337 @@ h1 {
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header">
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="brand" href="#top">Junchao Duan</a>
-    <div class="nav-right">
-      <div class="nav-links">
-        <a href="#research">Research</a>
-        <a href="#education">Education</a>
-        <a href="#work">Selected Work</a>
-        <a href="#awards">Awards</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="language-switch" role="group" aria-label="Language">
-        <button class="lang-option is-active" type="button" data-lang-option="en" aria-pressed="true">EN</button>
-        <button class="lang-option" type="button" data-lang-option="zh" aria-pressed="false">中文</button>
-      </div>
-    </div>
-  </nav>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="site-name" href="#top">Junchao Duan</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#talks">Talks</a>
+      <a href="#teaching">Teaching</a>
+      <a href="assets/Junchao_Duan_Academic_CV.pdf" download>CV</a>
+    </nav>
+  </div>
 </header>
 
-<main id="main">
-  <section class="hero" id="top">
-    <div>
-      <p class="eyebrow">Applied Mathematics · Numerical Analysis · Scientific Computing</p>
-      <h1>Junchao Duan</h1>
-      <p class="subtitle">
-        Ph.D. student in the Department of Applied Mathematics at The Hong Kong Polytechnic University.
-        My current research focuses on fast, reproducible numerical solvers for stochastic complementarity
-        systems, with particular interest in smoothing methods, QMC approximation, and ultraspherical spectral discretization.
+<main class="layout" id="main">
+  <aside class="sidebar" aria-label="Profile sidebar">
+    <section class="profile-card">
+      <img class="portrait" src="assets/profile-photo.jpg" alt="Portrait of Junchao Duan" width="152" height="152">
+      <div>
+        <h1>Junchao Duan</h1>
+        <p class="role">Ph.D. Student in Applied Mathematics</p>
+      </div>
+      <div class="affiliation">
+        <strong>The Hong Kong Polytechnic University</strong>
+        Department of Applied Mathematics<br>
+        Hong Kong SAR, China
+      </div>
+      <div class="profile-links">
+        <a href="mailto:25036713r@connect.polyu.hk">Email</a>
+        <a href="https://github.com/djcdjcdjc2000" target="_blank" rel="noopener">GitHub</a>
+        <a href="assets/Junchao_Duan_Academic_CV.pdf" download>Academic CV</a>
+      </div>
+    </section>
+
+    <section class="mini-section">
+      <h2>Research Focus</h2>
+      <p>Fast numerical algorithms for differential stochastic linear complementarity problems.</p>
+    </section>
+
+    <section class="mini-section">
+      <h2>Advisor</h2>
+      <p>Prof. Xiaojun Chen</p>
+    </section>
+  </aside>
+
+  <div class="content">
+    <section class="hero" id="top">
+      <p class="eyebrow">Applied Mathematics / Numerical Analysis / Scientific Computing</p>
+      <h2>Numerical methods for nonsmooth stochastic systems</h2>
+      <p class="lead">
+        I am a Ph.D. student in the Department of Applied Mathematics at The Hong Kong Polytechnic University.
       </p>
-
-      <div class="hero-actions" id="contact">
-        <a class="button primary" href="mailto:25036713r@connect.polyu.hk">25036713r@connect.polyu.hk</a>
-        <a class="button" href="https://github.com/DJCdjcDJC2000" target="_blank" rel="noopener">GitHub</a>
-        <a class="button" href="#work">View selected work</a>
-      </div>
-
-      <div class="quick-facts" aria-label="Academic snapshot">
-        <div class="fact"><strong>PolyU</strong>Ph.D. student</div>
-        <div class="fact"><strong>HIT</strong>M.S., rank 1/18</div>
-        <div class="fact"><strong>HEU</strong>B.S., rank 3/96</div>
-        <div class="fact"><strong>Research</strong>DSLCP, QMC, spectral methods</div>
-      </div>
-    </div>
-
-    <aside class="hero-visual" aria-label="Research overview">
-      <div class="visual-title">
-        <span>Current research model</span>
-        <span>DSLCP</span>
-      </div>
-      <div class="research-slate">
-        <pre class="formula">x'(t) = A(t)x(t) + f(t)
-        + E[ B(t,xi)y(t,xi) ]
-
-0 <= y(t,xi) perp M(t,xi)y(t,xi)
-        + N(t,xi)x(t) + q(t,xi) >= 0</pre>
-        <div class="pipeline">
-          <div class="pipeline-step">
-            <b>Smoothing</b>
-            <span>Fischer-Burmeister homotopy for nonsmooth complementarity conditions.</span>
-          </div>
-          <div class="pipeline-step">
-            <b>Sampling</b>
-            <span>Deterministic QMC / randomized audit paths for expected feedback terms.</span>
-          </div>
-          <div class="pipeline-step">
-            <b>Discretization</b>
-            <span>Ultraspherical spectral structure and waveform iteration over the time interval.</span>
-          </div>
-        </div>
-      </div>
-    </aside>
-  </section>
-
-  <section class="section" id="research">
-    <div class="section-heading">
-      <h2>Research</h2>
-      <p>
-        I work at the intersection of numerical analysis, optimization, stochastic dynamical systems,
-        and high-quality computational implementation. I care about methods that are not only mathematically
-        meaningful, but also reproducible and inspectable.
+      <p class="summary">
+        My current research develops fast numerical methods for differential stochastic linear complementarity
+        problems. The work combines smoothing methods, sample average approximation, ultraspherical spectral
+        discretization, and block iterative solvers, with an emphasis on structured error analysis and
+        accuracy-cost evaluation.
       </p>
-    </div>
-
-    <div class="interest-grid">
-      <div class="interest">
-        <b>Complementarity systems</b>
-        <span>Dynamic and stochastic linear complementarity problems, variational inequalities, and nonsmooth systems.</span>
-      </div>
-      <div class="interest">
-        <b>Spectral methods</b>
-        <span>Chebyshev and ultraspherical discretizations for structured time-domain computation.</span>
-      </div>
-      <div class="interest">
-        <b>QMC approximation</b>
-        <span>Deterministic and randomized quasi-Monte Carlo tools for expected feedback terms.</span>
-      </div>
-      <div class="interest">
-        <b>Scientific software</b>
-        <span>MATLAB, Python, and C++ implementations with attention to numerical verification.</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="education">
-    <div class="section-heading">
-      <h2>Education</h2>
-      <p>A concise academic path from mathematical training to current doctoral research in applied mathematics.</p>
-    </div>
-
-    <div class="timeline">
-      <article class="timeline-item">
-        <div class="date">2025 - Present</div>
-        <div>
-          <h3>Ph.D. Student in Applied Mathematics</h3>
-          <p class="meta">Department of Applied Mathematics, The Hong Kong Polytechnic University, Hong Kong SAR</p>
-          <p>Current research: fast solvers for time-varying dynamic stochastic linear complementarity problems.</p>
+      <div class="research-strip" aria-label="Research snapshot">
+        <div class="strip-item">
+          <strong>DSLCPs</strong>
+          <span>Differential stochastic linear complementarity problems.</span>
         </div>
-      </article>
-
-      <article class="timeline-item">
-        <div class="date">2022 - 2025</div>
-        <div>
-          <h3>M.S. in Computational Mathematics</h3>
-          <p class="meta">School of Mathematics, Harbin Institute of Technology · Rank 1/18</p>
-          <p>Research training in sparse spectral methods, constrained optimal control, numerical optimization, and scientific computing.</p>
+        <div class="strip-item">
+          <strong>Smoothing</strong>
+          <span>Fischer-Burmeister smoothing and sample approximation.</span>
         </div>
-      </article>
-
-      <article class="timeline-item">
-        <div class="date">2018 - 2022</div>
-        <div>
-          <h3>B.S. in Mathematics and Applied Mathematics</h3>
-          <p class="meta">School of Mathematical Sciences, Harbin Engineering University · Rank 3/96</p>
-          <p>Foundation in mathematical modeling, optimization, numerical computation, and programming for applied problems.</p>
+        <div class="strip-item">
+          <strong>Spectral</strong>
+          <span>Ultraspherical methods for time-domain computation.</span>
         </div>
-      </article>
-    </div>
-  </section>
+        <div class="strip-item">
+          <strong>Solvers</strong>
+          <span>Block iterative methods and reproducible experiments.</span>
+        </div>
+      </div>
+    </section>
 
-  <section class="section" id="work">
-    <div class="section-heading">
-      <h2>Selected Work</h2>
-      <p>Selected research directions and projects. This section intentionally emphasizes current academic focus over a long project inventory.</p>
-    </div>
+    <section class="section" id="about">
+      <div class="section-head">
+        <p class="section-kicker">About</p>
+        <div>
+          <h2>Academic profile</h2>
+          <p class="section-intro">
+            I work at the intersection of numerical optimization, complementarity problems,
+            stochastic approximation, spectral methods, and scientific computing.
+          </p>
+        </div>
+      </div>
 
-    <div class="work-list">
-      <article class="work-item">
-        <div class="work-topline">
+      <div class="news-list" aria-label="Selected recent updates">
+        <div class="news-row">
+          <div class="date">2026</div>
+          <p>Preparing a manuscript with Xiaojun Chen on an ultraspherical spectral method for differential stochastic linear complementarity problems.</p>
+        </div>
+        <div class="news-row">
+          <div class="date">May 2026</div>
+          <p>Presented a poster at the International Workshop on Numerical Methods and Scientific Computing, The Hong Kong Polytechnic University.</p>
+        </div>
+        <div class="news-row">
+          <div class="date">Apr. 2026</div>
+          <p>Gave an oral presentation in the Special Session on Stochastic Optimization and Equilibrium at ICOTA 2026, Shanghai.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="section-head">
+        <p class="section-kicker">Research</p>
+        <div>
+          <h2>Research interests</h2>
+          <p class="section-intro">
+            I am interested in numerical methods whose mathematical structure and computational behavior
+            can be analyzed together.
+          </p>
+        </div>
+      </div>
+
+      <div class="method-grid">
+        <article class="method-card">
+          <h3>Complementarity systems</h3>
+          <p>Differential and stochastic linear complementarity problems, nonsmooth dynamical systems, and variational structures.</p>
+        </article>
+        <article class="method-card">
+          <h3>Approximation</h3>
+          <p>Smoothing methods, sample average approximation, and finite-sample stochastic feedback terms.</p>
+        </article>
+        <article class="method-card">
+          <h3>Spectral methods</h3>
+          <p>Chebyshev and ultraspherical spectral discretization for structured time-domain computation.</p>
+        </article>
+        <article class="method-card">
+          <h3>Scientific computing</h3>
+          <p>Block iterative solvers, accuracy-cost evaluation, and reproducible numerical protocols.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="section-head">
+        <p class="section-kicker">Publications</p>
+        <div>
+          <h2>Manuscripts</h2>
+          <p class="section-intro">Current manuscript and writing in preparation.</p>
+        </div>
+      </div>
+
+      <article class="entry">
+        <div class="entry-top">
           <div>
-            <h3>Fast solvers for time-varying dynamic stochastic linear complementarity problems</h3>
-            <p class="meta">Current doctoral research · Applied mathematics and scientific computing</p>
+            <h3>An Ultraspherical Spectral Method for Differential Stochastic Linear Complementarity Problems</h3>
+            <div class="meta"><strong>Junchao Duan</strong> and Xiaojun Chen</div>
           </div>
-          <span class="status">Active</span>
+          <span class="pill">Manuscript in preparation</span>
         </div>
-        <p>
-          Developing a solver framework that combines Fischer-Burmeister smoothing, QMC approximation,
-          ultraspherical spectral discretization, and waveform iteration for DSLCPs. The current emphasis is on
-          clear error structure, fair numerical comparison, and reproducible implementation.
+        <p class="entry-body">
+          This work develops a smoothing-SAA-spectral framework with structured error decomposition
+          and numerical protocols for finite-sample spectral methods.
         </p>
         <div class="tag-row">
           <span class="tag">DSLCP</span>
-          <span class="tag">Fischer-Burmeister smoothing</span>
-          <span class="tag">QMC</span>
+          <span class="tag">Smoothing</span>
+          <span class="tag">SAA</span>
           <span class="tag">Ultraspherical spectral methods</span>
-          <span class="tag">MATLAB / Python</span>
         </div>
       </article>
+    </section>
 
-      <article class="work-item">
-        <div class="work-topline">
+    <section class="section" id="talks">
+      <div class="section-head">
+        <p class="section-kicker">Talks</p>
+        <div>
+          <h2>Presentations</h2>
+          <p class="section-intro">Recent conference presentations related to the current manuscript project.</p>
+        </div>
+      </div>
+
+      <div class="item-list">
+        <article class="compact-row">
+          <div class="date">May 2026</div>
           <div>
-            <h3>Sparse spectral methods for constrained optimal control problems</h3>
-            <p class="meta">Master's thesis and manuscript work · Harbin Institute of Technology</p>
+            <h3>Poster</h3>
+            <p><em>An Ultraspherical Spectral Method for Differential Stochastic Linear Complementarity Problems</em>, International Workshop on Numerical Methods and Scientific Computing, The Hong Kong Polytechnic University, Hong Kong SAR, China.</p>
           </div>
-          <span class="status">Manuscript</span>
-        </div>
-        <p>
-          Proposed a modal Chebyshev spectral discretization strategy for constrained optimal control problems,
-          converting dynamic constraints into sparse structured coefficient equations and reducing the burden of
-          dense node-based pseudospectral formulations.
-        </p>
-        <div class="tag-row">
-          <span class="tag">Optimal control</span>
-          <span class="tag">Chebyshev polynomials</span>
-          <span class="tag">Sparse discretization</span>
-          <span class="tag">Nonlinear programming</span>
-        </div>
-      </article>
-
-      <article class="work-item">
-        <div class="work-topline">
+        </article>
+        <article class="compact-row">
+          <div class="date">Apr. 2026</div>
           <div>
-            <h3>Earlier applied and computational projects</h3>
-            <p class="meta">Mathematical modeling, image data clustering, trajectory analysis, and digital twin systems</p>
+            <h3>Oral presentation</h3>
+            <p><em>An Ultraspherical Spectral Method for Differential Stochastic Linear Complementarity Problems</em>, Special Session: Stochastic Optimization and Equilibrium, ICOTA 2026, Shanghai, China.</p>
           </div>
-          <span class="status">Selected</span>
+        </article>
+        <article class="compact-row">
+          <div class="date">Mar. 2026</div>
+          <div>
+            <h3>Poster</h3>
+            <p><em>An Ultraspherical Spectral Method for Differential Stochastic Linear Complementarity Problems</em>, The 4th Guangzhou-Shenzhen Workshop on Nonsmooth Optimization, Guangzhou, China.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="teaching">
+      <div class="section-head">
+        <p class="section-kicker">Teaching</p>
+        <div>
+          <h2>Teaching experience</h2>
+          <p class="section-intro">Teaching assistant work in undergraduate mathematics.</p>
         </div>
-        <p>
-          Completed projects involving semi-supervised sparse subspace clustering, asteroid trajectory analysis,
-          epidemic and enterprise-loan data modeling, and digital twin technology for indoor parking lots. These
-          projects built a practical base in Python, MATLAB, C++, optimization, and data-driven modeling.
+      </div>
+
+      <article class="entry">
+        <div class="entry-top">
+          <div>
+            <h3>Teaching Assistant, Undergraduate Calculus</h3>
+            <div class="meta">Department of Applied Mathematics, The Hong Kong Polytechnic University</div>
+          </div>
+          <span class="pill">2025.09-2026.06</span>
+        </div>
+        <p class="entry-body">
+          Held weekly office hours for undergraduate Calculus students during Spring 2026, 4 hours per week.
+          Assisted with homework grading and exam invigilation during Fall 2025 and Spring 2026.
         </p>
-        <div class="tag-row">
-          <span class="tag">Python</span>
-          <span class="tag">MATLAB</span>
-          <span class="tag">C++</span>
-          <span class="tag">Optimization</span>
-          <span class="tag">Data modeling</span>
-        </div>
       </article>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="awards">
-    <div class="section-heading">
-      <h2>Awards</h2>
-      <p>A compact list of representative awards and recognitions.</p>
-    </div>
-
-    <div class="two-column">
-      <div class="award-list">
-        <div class="award-item">
-          <strong>National Scholarship</strong>
-          <span>2019, 2020, 2021</span>
+    <section class="section" id="education">
+      <div class="section-head">
+        <p class="section-kicker">Education</p>
+        <div>
+          <h2>Education</h2>
+          <p class="section-intro">Academic training in mathematics and applied mathematics.</p>
         </div>
-        <div class="award-item">
-          <strong>Graduate academic scholarship</strong>
+      </div>
+
+      <div class="item-list">
+        <article class="compact-row">
+          <div class="date">2025.09-2028.06</div>
+          <div>
+            <h3>Ph.D. in Applied Mathematics</h3>
+            <p>The Hong Kong Polytechnic University, Department of Applied Mathematics. Supervisor: Prof. Xiaojun Chen.</p>
+          </div>
+        </article>
+        <article class="compact-row">
+          <div class="date">2022.09-2025.06</div>
+          <div>
+            <h3>M.S. in Mathematics</h3>
+            <p>Harbin Institute of Technology, School of Mathematics. Rank: 1/18. Outstanding Master's Thesis.</p>
+          </div>
+        </article>
+        <article class="compact-row">
+          <div class="date">2018.09-2022.06</div>
+          <div>
+            <h3>B.S. in Mathematics</h3>
+            <p>Harbin Engineering University, School of Mathematical Sciences. Rank: 3/96.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="awards">
+      <div class="section-head">
+        <p class="section-kicker">Awards</p>
+        <div>
+          <h2>Selected honors and awards</h2>
+          <p class="section-intro">Representative academic honors and recognitions.</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <article class="award-card">
+          <strong>Outstanding Master's Thesis</strong>
+          <span>Harbin Institute of Technology, 2025</span>
+        </article>
+        <article class="award-card">
+          <strong>Outstanding Graduate</strong>
+          <span>Heilongjiang Province, 2025</span>
+        </article>
+        <article class="award-card">
+          <strong>National Scholarship for Graduate Students</strong>
+          <span>2024</span>
+        </article>
+        <article class="award-card">
+          <strong>First-Class Academic Scholarship</strong>
           <span>2022, 2023</span>
-        </div>
-        <div class="award-item">
-          <strong>Xiaomi Scholarship</strong>
-          <span>2023</span>
-        </div>
-        <div class="award-item">
-          <strong>Merit Student in Heilongjiang Province</strong>
-          <span>2023</span>
+        </article>
+        <article class="award-card">
+          <strong>National Scholarship</strong>
+          <span>2019-2021, three times</span>
+        </article>
+        <article class="award-card">
+          <strong>Selected mathematics and modeling competition awards</strong>
+          <span>2019-2020</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-head">
+        <p class="section-kicker">Skills</p>
+        <div>
+          <h2>Methods and tools</h2>
+          <p class="section-intro">Technical background for numerical experiments and academic writing.</p>
         </div>
       </div>
-      <div class="award-list">
-        <div class="award-item">
-          <strong>National College Students Mathematics Competition</strong>
-          <span>National Third Prize, 2019</span>
-        </div>
-        <div class="award-item">
-          <strong>National College Students Mathematics Competition</strong>
-          <span>Provincial First Prize, 2020</span>
-        </div>
-        <div class="award-item">
-          <strong>Northeast Three Provinces Mathematical Modeling League</strong>
-          <span>Provincial First Prize, 2020</span>
-        </div>
-        <div class="award-item">
-          <strong>National College Students Mathematical Modeling Competition</strong>
-          <span>Provincial Second Prize, 2020</span>
-        </div>
+
+      <div class="item-list">
+        <article class="compact-row">
+          <div class="date">Methods</div>
+          <div>
+            <h3>Numerical analysis and optimization</h3>
+            <p>Numerical optimization, complementarity problems, stochastic approximation, spectral methods, nonlinear programming, and scientific computing.</p>
+          </div>
+        </article>
+        <article class="compact-row">
+          <div class="date">Programming</div>
+          <div>
+            <h3>Scientific computing</h3>
+            <p>Python, C++, Matlab, Octave; experience with NumPy, Eigen, ADOL-C, and Ipopt.</p>
+          </div>
+        </article>
+        <article class="compact-row">
+          <div class="date">Writing</div>
+          <div>
+            <h3>Academic communication</h3>
+            <p>LaTeX, English academic writing, conference posters, and oral presentations.</p>
+          </div>
+        </article>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="skills">
-    <div class="section-heading">
-      <h2>Skills</h2>
-      <p>Technical tools I use for numerical experiments, modeling, and writing.</p>
-    </div>
-
-    <div class="skills" aria-label="Technical skills">
-      <span class="skill">Python</span>
-      <span class="skill">MATLAB / Octave</span>
-      <span class="skill">C++</span>
-      <span class="skill">LaTeX</span>
-      <span class="skill">NumPy / Pandas / Matplotlib</span>
-      <span class="skill">Eigen / Ipopt</span>
-      <span class="skill">Numerical optimization</span>
-      <span class="skill">Scientific visualization</span>
-      <span class="skill">Academic English · IELTS 7.0</span>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-heading">
-      <h2>Teaching</h2>
-      <p>How I would like this homepage to grow as my academic role develops.</p>
-    </div>
-
-    <div class="teaching-note">
-      <p>
-        I enjoy turning difficult mathematical and computational ideas into clear notes, reproducible examples,
-        and step-by-step explanations. As my teaching experience grows, this page can expand with lecture notes,
-        course materials, and student resources in numerical analysis, optimization, and scientific computing.
-      </p>
-    </div>
-  </section>
+    </section>
+  </div>
 </main>
 
 <footer class="footer">
@@ -984,242 +992,5 @@ h1 {
     <span>Last updated: June 2026</span>
   </div>
 </footer>
-<script>
-const pageText = {
-  en: {
-    title: "Junchao Duan | Applied Mathematics",
-    description: "Junchao Duan - Ph.D. student in Applied Mathematics at The Hong Kong Polytechnic University. Research in numerical methods, complementarity problems, stochastic dynamical systems, spectral methods, and scientific computing.",
-    html: {
-      ".skip-link": "Skip to content",
-      ".brand": "Junchao Duan",
-      ".nav-links a:nth-child(1)": "Research",
-      ".nav-links a:nth-child(2)": "Education",
-      ".nav-links a:nth-child(3)": "Selected Work",
-      ".nav-links a:nth-child(4)": "Awards",
-      ".nav-links a:nth-child(5)": "Contact",
-      ".eyebrow": "Applied Mathematics &middot; Numerical Analysis &middot; Scientific Computing",
-      ".hero h1": "Junchao Duan",
-      ".subtitle": "Ph.D. student in the Department of Applied Mathematics at The Hong Kong Polytechnic University. My current research focuses on fast, reproducible numerical solvers for stochastic complementarity systems, with particular interest in smoothing methods, QMC approximation, and ultraspherical spectral discretization.",
-      ".hero-actions a:nth-child(3)": "View selected work",
-      ".quick-facts .fact:nth-child(1)": "<strong>PolyU</strong>Ph.D. student",
-      ".quick-facts .fact:nth-child(2)": "<strong>HIT</strong>M.S., rank 1/18",
-      ".quick-facts .fact:nth-child(3)": "<strong>HEU</strong>B.S., rank 3/96",
-      ".quick-facts .fact:nth-child(4)": "<strong>Research</strong>DSLCP, QMC, spectral methods",
-      ".visual-title span:first-child": "Current research model",
-      ".pipeline-step:nth-child(1) b": "Smoothing",
-      ".pipeline-step:nth-child(1) span": "Fischer-Burmeister homotopy for nonsmooth complementarity conditions.",
-      ".pipeline-step:nth-child(2) b": "Sampling",
-      ".pipeline-step:nth-child(2) span": "Deterministic QMC / randomized audit paths for expected feedback terms.",
-      ".pipeline-step:nth-child(3) b": "Discretization",
-      ".pipeline-step:nth-child(3) span": "Ultraspherical spectral structure and waveform iteration over the time interval.",
-      "#research .section-heading h2": "Research",
-      "#research .section-heading p": "I work at the intersection of numerical analysis, optimization, stochastic dynamical systems, and high-quality computational implementation. I care about methods that are not only mathematically meaningful, but also reproducible and inspectable.",
-      ".interest:nth-child(1) b": "Complementarity systems",
-      ".interest:nth-child(1) span": "Dynamic and stochastic linear complementarity problems, variational inequalities, and nonsmooth systems.",
-      ".interest:nth-child(2) b": "Spectral methods",
-      ".interest:nth-child(2) span": "Chebyshev and ultraspherical discretizations for structured time-domain computation.",
-      ".interest:nth-child(3) b": "QMC approximation",
-      ".interest:nth-child(3) span": "Deterministic and randomized quasi-Monte Carlo tools for expected feedback terms.",
-      ".interest:nth-child(4) b": "Scientific software",
-      ".interest:nth-child(4) span": "MATLAB, Python, and C++ implementations with attention to numerical verification.",
-      "#education .section-heading h2": "Education",
-      "#education .section-heading p": "A concise academic path from mathematical training to current doctoral research in applied mathematics.",
-      "#education .timeline-item:nth-child(1) .date": "2025 - Present",
-      "#education .timeline-item:nth-child(1) h3": "Ph.D. Student in Applied Mathematics",
-      "#education .timeline-item:nth-child(1) .meta": "Department of Applied Mathematics, The Hong Kong Polytechnic University, Hong Kong SAR",
-      "#education .timeline-item:nth-child(1) p:last-child": "Current research: fast solvers for time-varying dynamic stochastic linear complementarity problems.",
-      "#education .timeline-item:nth-child(2) h3": "M.S. in Computational Mathematics",
-      "#education .timeline-item:nth-child(2) .meta": "School of Mathematics, Harbin Institute of Technology &middot; Rank 1/18",
-      "#education .timeline-item:nth-child(2) p:last-child": "Research training in sparse spectral methods, constrained optimal control, numerical optimization, and scientific computing.",
-      "#education .timeline-item:nth-child(3) h3": "B.S. in Mathematics and Applied Mathematics",
-      "#education .timeline-item:nth-child(3) .meta": "School of Mathematical Sciences, Harbin Engineering University &middot; Rank 3/96",
-      "#education .timeline-item:nth-child(3) p:last-child": "Foundation in mathematical modeling, optimization, numerical computation, and programming for applied problems.",
-      "#work .section-heading h2": "Selected Work",
-      "#work .section-heading p": "Selected research directions and projects. This section intentionally emphasizes current academic focus over a long project inventory.",
-      "#work .work-item:nth-child(1) h3": "Fast solvers for time-varying dynamic stochastic linear complementarity problems",
-      "#work .work-item:nth-child(1) .meta": "Current doctoral research &middot; Applied mathematics and scientific computing",
-      "#work .work-item:nth-child(1) .status": "Active",
-      "#work .work-item:nth-child(1) > p": "Developing a solver framework that combines Fischer-Burmeister smoothing, QMC approximation, ultraspherical spectral discretization, and waveform iteration for DSLCPs. The current emphasis is on clear error structure, fair numerical comparison, and reproducible implementation.",
-      "#work .work-item:nth-child(2) h3": "Sparse spectral methods for constrained optimal control problems",
-      "#work .work-item:nth-child(2) .meta": "Master's thesis and manuscript work &middot; Harbin Institute of Technology",
-      "#work .work-item:nth-child(2) .status": "Manuscript",
-      "#work .work-item:nth-child(2) > p": "Proposed a modal Chebyshev spectral discretization strategy for constrained optimal control problems, converting dynamic constraints into sparse structured coefficient equations and reducing the burden of dense node-based pseudospectral formulations.",
-      "#work .work-item:nth-child(3) h3": "Earlier applied and computational projects",
-      "#work .work-item:nth-child(3) .meta": "Mathematical modeling, image data clustering, trajectory analysis, and digital twin systems",
-      "#work .work-item:nth-child(3) .status": "Selected",
-      "#work .work-item:nth-child(3) > p": "Completed projects involving semi-supervised sparse subspace clustering, asteroid trajectory analysis, epidemic and enterprise-loan data modeling, and digital twin technology for indoor parking lots. These projects built a practical base in Python, MATLAB, C++, optimization, and data-driven modeling.",
-      "#awards .section-heading h2": "Awards",
-      "#awards .section-heading p": "A compact list of representative awards and recognitions.",
-      "#awards .award-list:nth-child(1) .award-item:nth-child(1) strong": "National Scholarship",
-      "#awards .award-list:nth-child(1) .award-item:nth-child(2) strong": "Graduate academic scholarship",
-      "#awards .award-list:nth-child(1) .award-item:nth-child(3) strong": "Xiaomi Scholarship",
-      "#awards .award-list:nth-child(1) .award-item:nth-child(4) strong": "Merit Student in Heilongjiang Province",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(1) strong": "National College Students Mathematics Competition",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(1) span": "National Third Prize, 2019",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(2) strong": "National College Students Mathematics Competition",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(2) span": "Provincial First Prize, 2020",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(3) strong": "Northeast Three Provinces Mathematical Modeling League",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(3) span": "Provincial First Prize, 2020",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(4) strong": "National College Students Mathematical Modeling Competition",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(4) span": "Provincial Second Prize, 2020",
-      "#skills .section-heading h2": "Skills",
-      "#skills .section-heading p": "Technical tools I use for numerical experiments, modeling, and writing.",
-      ".skills .skill:nth-child(7)": "Numerical optimization",
-      ".skills .skill:nth-child(8)": "Scientific visualization",
-      ".skills .skill:nth-child(9)": "Academic English &middot; IELTS 7.0",
-      "main > .section:last-child .section-heading h2": "Teaching",
-      "main > .section:last-child .section-heading p": "How I would like this homepage to grow as my academic role develops.",
-      ".teaching-note p": "I enjoy turning difficult mathematical and computational ideas into clear notes, reproducible examples, and step-by-step explanations. As my teaching experience grows, this page can expand with lecture notes, course materials, and student resources in numerical analysis, optimization, and scientific computing.",
-      ".footer-inner span:nth-child(1)": "&copy; 2026 Junchao Duan",
-      ".footer-inner span:nth-child(2)": "Last updated: June 2026"
-    }
-  },
-  zh: {
-    title: "段俊超 | 应用数学",
-    description: "段俊超，香港理工大学应用数学系博士生。研究方向包括数值分析、互补问题、随机动力系统、谱方法与科学计算。",
-    html: {
-      ".skip-link": "跳到正文",
-      ".brand": "段俊超",
-      ".nav-links a:nth-child(1)": "研究方向",
-      ".nav-links a:nth-child(2)": "教育经历",
-      ".nav-links a:nth-child(3)": "代表工作",
-      ".nav-links a:nth-child(4)": "荣誉奖励",
-      ".nav-links a:nth-child(5)": "联系方式",
-      ".eyebrow": "应用数学 &middot; 数值分析 &middot; 科学计算",
-      ".hero h1": "段俊超",
-      ".subtitle": "香港理工大学应用数学系博士生。当前研究聚焦随机互补系统的快速、可复现数值求解器，重点关注平滑方法、QMC 近似与超球谱离散。",
-      ".hero-actions a:nth-child(3)": "查看代表工作",
-      ".quick-facts .fact:nth-child(1)": "<strong>PolyU</strong>博士生",
-      ".quick-facts .fact:nth-child(2)": "<strong>HIT</strong>硕士，排名 1/18",
-      ".quick-facts .fact:nth-child(3)": "<strong>HEU</strong>本科，排名 3/96",
-      ".quick-facts .fact:nth-child(4)": "<strong>研究</strong>DSLCP、QMC、谱方法",
-      ".visual-title span:first-child": "当前研究模型",
-      ".pipeline-step:nth-child(1) b": "平滑化",
-      ".pipeline-step:nth-child(1) span": "利用 Fischer-Burmeister 同伦处理非光滑互补条件。",
-      ".pipeline-step:nth-child(2) b": "采样近似",
-      ".pipeline-step:nth-child(2) span": "用确定性 QMC 与随机化检验路径近似期望反馈项。",
-      ".pipeline-step:nth-child(3) b": "离散求解",
-      ".pipeline-step:nth-child(3) span": "结合超球谱结构与波形迭代处理时间区间上的问题。",
-      "#research .section-heading h2": "研究方向",
-      "#research .section-heading p": "我的研究位于数值分析、优化、随机动力系统与高质量计算实现的交叉处。我关注的不只是数学上有意义的方法，也包括它们能否被清晰复现和可靠检验。",
-      ".interest:nth-child(1) b": "互补系统",
-      ".interest:nth-child(1) span": "动态与随机线性互补问题、变分不等式以及非光滑系统。",
-      ".interest:nth-child(2) b": "谱方法",
-      ".interest:nth-child(2) span": "面向结构化时域计算的 Chebyshev 与超球谱离散。",
-      ".interest:nth-child(3) b": "QMC 近似",
-      ".interest:nth-child(3) span": "用于期望反馈项的确定性与随机化 quasi-Monte Carlo 工具。",
-      ".interest:nth-child(4) b": "科学计算软件",
-      ".interest:nth-child(4) span": "使用 MATLAB、Python 与 C++ 进行重视数值验证的算法实现。",
-      "#education .section-heading h2": "教育经历",
-      "#education .section-heading p": "从数学基础训练到当前应用数学博士研究的简要学术轨迹。",
-      "#education .timeline-item:nth-child(1) .date": "2025 - 至今",
-      "#education .timeline-item:nth-child(1) h3": "应用数学博士生",
-      "#education .timeline-item:nth-child(1) .meta": "香港理工大学应用数学系，中国香港",
-      "#education .timeline-item:nth-child(1) p:last-child": "当前研究：时变动态随机线性互补问题的快速数值求解器。",
-      "#education .timeline-item:nth-child(2) h3": "计算数学硕士",
-      "#education .timeline-item:nth-child(2) .meta": "哈尔滨工业大学数学学院 &middot; 排名 1/18",
-      "#education .timeline-item:nth-child(2) p:last-child": "研究训练包括稀疏谱方法、约束最优控制、数值优化与科学计算。",
-      "#education .timeline-item:nth-child(3) h3": "数学与应用数学本科",
-      "#education .timeline-item:nth-child(3) .meta": "哈尔滨工程大学数学科学学院 &middot; 排名 3/96",
-      "#education .timeline-item:nth-child(3) p:last-child": "系统学习数学建模、优化、数值计算以及面向应用问题的程序设计。",
-      "#work .section-heading h2": "代表工作",
-      "#work .section-heading p": "以下列出代表性研究方向和项目，重点呈现当前学术主线，而不是罗列全部经历。",
-      "#work .work-item:nth-child(1) h3": "时变动态随机线性互补问题的快速求解器",
-      "#work .work-item:nth-child(1) .meta": "当前博士研究 &middot; 应用数学与科学计算",
-      "#work .work-item:nth-child(1) .status": "进行中",
-      "#work .work-item:nth-child(1) > p": "正在构建结合 Fischer-Burmeister 平滑、QMC 近似、超球谱离散与波形迭代的 DSLCP 求解框架。目前重点在于清晰的误差结构、公平的数值比较和可复现实现。",
-      "#work .work-item:nth-child(2) h3": "约束最优控制问题的稀疏谱方法",
-      "#work .work-item:nth-child(2) .meta": "硕士论文与手稿工作 &middot; 哈尔滨工业大学",
-      "#work .work-item:nth-child(2) .status": "手稿",
-      "#work .work-item:nth-child(2) > p": "提出用于约束最优控制问题的模态 Chebyshev 谱离散策略，将动态约束转化为稀疏结构化系数方程，从而降低传统节点型伪谱格式带来的稠密计算负担。",
-      "#work .work-item:nth-child(3) h3": "早期应用与计算项目",
-      "#work .work-item:nth-child(3) .meta": "数学建模、图像数据聚类、轨迹分析与数字孪生系统",
-      "#work .work-item:nth-child(3) .status": "代表项目",
-      "#work .work-item:nth-child(3) > p": "曾完成半监督稀疏子空间聚类、小行星轨迹分析、疫情与企业信贷数据建模、室内停车场数字孪生等项目。这些经历为 Python、MATLAB、C++、优化和数据驱动建模打下了实践基础。",
-      "#awards .section-heading h2": "荣誉奖励",
-      "#awards .section-heading p": "部分代表性奖项与荣誉。",
-      "#awards .award-list:nth-child(1) .award-item:nth-child(1) strong": "国家奖学金",
-      "#awards .award-list:nth-child(1) .award-item:nth-child(2) strong": "研究生学业奖学金",
-      "#awards .award-list:nth-child(1) .award-item:nth-child(3) strong": "小米奖学金",
-      "#awards .award-list:nth-child(1) .award-item:nth-child(4) strong": "黑龙江省三好学生",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(1) strong": "全国大学生数学竞赛",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(1) span": "全国三等奖，2019",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(2) strong": "全国大学生数学竞赛",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(2) span": "省级一等奖，2020",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(3) strong": "东北三省数学建模联赛",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(3) span": "省级一等奖，2020",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(4) strong": "全国大学生数学建模竞赛",
-      "#awards .award-list:nth-child(2) .award-item:nth-child(4) span": "省级二等奖，2020",
-      "#skills .section-heading h2": "技能",
-      "#skills .section-heading p": "用于数值实验、建模与学术写作的主要工具。",
-      ".skills .skill:nth-child(7)": "数值优化",
-      ".skills .skill:nth-child(8)": "科学可视化",
-      ".skills .skill:nth-child(9)": "学术英语 &middot; IELTS 7.0",
-      "main > .section:last-child .section-heading h2": "教学",
-      "main > .section:last-child .section-heading p": "这个主页未来可以随着教学和科研经历继续扩展。",
-      ".teaching-note p": "我喜欢把复杂的数学与计算思想整理成清晰笔记、可复现实例和循序渐进的说明。随着教学经历的增加，本页可以继续加入数值分析、优化与科学计算方向的课程资料、讲义和学生资源。",
-      ".footer-inner span:nth-child(1)": "&copy; 2026 段俊超",
-      ".footer-inner span:nth-child(2)": "更新：2026 年 6 月"
-    }
-  }
-};
-
-function setPageLanguage(language) {
-  const lang = language === "zh" ? "zh" : "en";
-  const copy = pageText[lang];
-  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-  document.body.classList.toggle("is-zh", lang === "zh");
-  document.title = copy.title;
-
-  const metaDescription = document.querySelector('meta[name="description"]');
-  if (metaDescription) {
-    metaDescription.setAttribute("content", copy.description);
-  }
-
-  Object.entries(copy.html).forEach(([selector, value]) => {
-    const element = document.querySelector(selector);
-    if (element) {
-      element.innerHTML = value;
-    }
-  });
-
-  document.querySelectorAll("[data-lang-option]").forEach((button) => {
-    const active = button.getAttribute("data-lang-option") === lang;
-    button.classList.toggle("is-active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
-
-  try {
-    localStorage.setItem("preferred-language", lang);
-  } catch (error) {
-    // The current switch still works even if local storage is unavailable.
-  }
-}
-
-function getInitialLanguage() {
-  const params = new URLSearchParams(window.location.search);
-  const requested = params.get("lang");
-  if (requested === "zh" || requested === "en") {
-    return requested;
-  }
-
-  try {
-    const stored = localStorage.getItem("preferred-language");
-    if (stored === "zh" || stored === "en") {
-      return stored;
-    }
-  } catch (error) {
-    return "en";
-  }
-
-  return "en";
-}
-
-document.querySelectorAll("[data-lang-option]").forEach((button) => {
-  button.addEventListener("click", () => setPageLanguage(button.getAttribute("data-lang-option")));
-});
-
-setPageLanguage(getInitialLanguage());
-</script>
 </body>
 </html>
